@@ -16,7 +16,7 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return jsonify({"message": "Task Manager API is running!"})
+    return jsonify({"message": "Task Manager API is running!", "version": "2.0"})
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
