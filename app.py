@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, Task
 import os
 from dotenv import load_dotenv
@@ -16,7 +16,7 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return jsonify({"message": "Task Manager API is running!", "version": "2.0"})
+    return render_template('index.html')
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
