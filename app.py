@@ -23,6 +23,11 @@ def get_tasks():
     tasks = Task.query.all()
     return jsonify([t.to_dict() for t in tasks])
 
+@app.route('/tasks/<int:id>', methods=['GET'])
+def get_task(id):
+    task = Task.query.get_or_404(id)
+    return jsonify(task.to_dict())
+
 @app.route('/tasks', methods=['POST'])
 def create_task():
     data = request.get_json()
